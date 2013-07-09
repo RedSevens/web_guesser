@@ -10,9 +10,14 @@
 				<%= message %>
 				<br><br>
 			<% end %>
+
 			<% if answer == true %>
 			The SECRET NUMBER is  <%= number %>
+			<% elsif chances == 0 %>
+			You have lost. The secret number was <%= number %>.<br>
+			To play again, click here: <a href="localhost:4567">Click here!</a>
 			<% else %>
+			You have <%= chances %> guesses left<br>
 			Please guess a number from 1-99
 			<% end %>
 		</p>
