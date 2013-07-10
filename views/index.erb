@@ -2,6 +2,7 @@
 	<head></head>
 	<body>
 		<p>
+			<h1>The Guessing Game!</h1>
 			<form>
 				<input type='text' name='guess' />
 				<input type='submit' value='Guess!' />
@@ -10,15 +11,22 @@
 				<%= message %>
 				<br><br>
 			<% end %>
-
 			<% if answer == true %>
-			The SECRET NUMBER is  <%= number %>
-			<% elsif chances == 0 %>
+			The secret number was  <%= number %><br>
+			To play again, click here: <a href="http://localhost:4567">Click here!</a>
+			<% elsif chances < 1 %>
 			You have lost. The secret number was <%= number %>.<br>
-			To play again, click here: <a href="localhost:4567">Click here!</a>
+			To play again, click here: <a href="http://localhost:4567">Click here!</a>
 			<% else %>
 			You have <%= chances %> guesses left<br>
 			Please guess a number from 1-99
+			<% end %>
+			<% if message == "Way too high" || message == "Way too low" %>
+				<body style='background: #FF0000'>
+			<% elsif message == "Too high" || message == "Too low" %>
+				<body style='background: #FF1919'>
+			<% elsif message == "You got it right!" %>
+				<body style='background: #00FF00'>
 			<% end %>
 		</p>
 	</body>
